@@ -1,12 +1,9 @@
 package events;
 
-import haxe.ds.HashMap;
 import haxe.Constraints.Function;
 
 class EventHandler<EventType = String> {
 	// For some reason, Maps don't work with generics.
-	// public var events: HashMap<EventType, Event>;
-
 	public var events_k: Array<EventType>;
 	public var events_v: Array<EventBase>;
 
@@ -35,12 +32,10 @@ class EventHandler<EventType = String> {
 
 	// ==== Event Listener ==== //
 	public function addEventListener(name: EventType, call: Function) {
-		// this.events.get(name).addListener(call);
 		this.getEvent(name).addListener(call);
 	}
 
 	public function removeEventListener(name: EventType, call: Function) {
-		// this.events.get(name).removeListener(call);
 		this.getEvent(name).removeListener(call);
 	}
 
@@ -55,25 +50,4 @@ class EventHandler<EventType = String> {
 		event.call(options);
 		return true;
 	}
-
-	// public overload extern inline function addEventListener(name: String, event: Event) {
-	// 	this.events.set(name, event);
-	// }
-
-	// public overload extern inline function addEventListener(name: String, call: Function) {
-	// 	var event: Event = new Event();
-	// 	event.call.bind(call);
-	// 	this.events.set(name, event);
-	// }
-
-	// public function callEvent(name: String, options: Null<Dynamic> = null): Bool {
-	// 	var event: Event = this.events.get(name);
-
-	// 	if (event == null) {
-	// 		return false;
-	// 	}
-
-	// 	event.call(options);
-	// 	return true;
-	// }
 }

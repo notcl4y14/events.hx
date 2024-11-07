@@ -6,10 +6,6 @@ import haxe.Constraints.Function;
 class EventBase {
 	public var listeners: Array<Function>;
 
-	// public function new() {
-	// 	listeners = [];
-	// }
-
 	// ==== Listener ==== //
 	public function addListener(listener: Function) {
 		listeners.push(listener);
@@ -27,6 +23,4 @@ class EventBase {
 			this.listeners[i](options);
 		}
 	}
-	
-	// public dynamic function call(?options: Dynamic) {}
 }
