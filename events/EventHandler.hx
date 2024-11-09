@@ -13,7 +13,7 @@ class EventHandler<EventType = String> {
 	}
 
 	// ==== Helper Functions ==== //
-	public function getEvent(name: EventType): EventBase {
+	private function getEvent(name: EventType): EventBase {
 		return events_v[events_k.indexOf(name)];
 	}
 
