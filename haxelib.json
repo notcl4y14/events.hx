@@ -6,9 +6,9 @@
 		"helpers"
 	],
 	"description": "A small library that adds a simple event system",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"classPath": "events",
-	"releasenote": "Initial release",
+	"releasenote": "Update the event system",
 	"contributors": [
 		"notcl4y14"
 	]
