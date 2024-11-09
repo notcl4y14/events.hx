@@ -1,10 +1,13 @@
 package events;
 
-import haxe.rtti.CType.Typedef;
 import haxe.Constraints.Function;
 
-class EventBase {
+class EventBase<Options = Any> {
 	public var listeners: Array<Function>;
+
+	public function new() {
+		listeners = [];
+	}
 
 	// ==== Listener ==== //
 	public function addListener(listener: Function) {
@@ -16,7 +19,7 @@ class EventBase {
 	}
 
 	// ==== Call ==== //
-	public function call(?options: Typedef) {
+	public function call(?options: Options) {
 		var i = -1;
 
 		while (listeners[++i] != null) {

@@ -1,9 +1,9 @@
 package events;
 
-class Event extends EventBase {
-	
+class Event<Options = Any> extends EventBase<Options> {
+
 	public function new() {
-		listeners = [];
+		super();
 	}
 
 }

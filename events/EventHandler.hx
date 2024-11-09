@@ -2,7 +2,7 @@ package events;
 
 import haxe.Constraints.Function;
 
-class EventHandler<EventType = String> {
+class EventHandler<EventType> {
 	// For some reason, Maps don't work with generics.
 	public var events_k: Array<EventType>;
 	public var events_v: Array<EventBase>;

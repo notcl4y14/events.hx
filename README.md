@@ -11,7 +11,7 @@ import events.EventHandler;
 class Sample {
 	public static function main() {
 		// Creating a new EventHandler
-		var eventHandler: EventHandler = new EventHandler();
+		var eventHandler: EventHandler<String> = new EventHandler();
 		
 		// Creating a new Event
 		eventHandler.createEvent("event");
@@ -44,7 +44,7 @@ class Sample {
 	EventType can be replaced with something else
 	like enum.
 **/
-class EventHandler<EventType = String> {
+class EventHandler<EventType> {
 	public function new();
 
 	// Adds and registers an event to EventHandler
@@ -67,7 +67,10 @@ class EventHandler<EventType = String> {
 	EventBase is a base class of an Event.
 	Can be inherited for custom Event classes.
 **/
-class EventBase {
+class EventBase<Options = Any> {
+	
+	public function new();
+
 	// Adds an Event Listener to Event
 	public function addListener(listener: Function): Void;
 
@@ -75,14 +78,14 @@ class EventBase {
 	public function removeListener(listener: Function): Void;
 
 	// Calls event's listeners
-	public function call(?options: Typedef): Void;
+	public function call(?options: Options): Void;
 }
 
 /**
 	Event is a class that inherits EventBase class.
 	It's a default simple Event class.
 **/
-class Event extends EventBase {
+class Event<Options = Any> extends EventBase<Options> {
 	
 	public function new();
 
